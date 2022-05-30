@@ -21,9 +21,7 @@ const StackEx = () => {
 
     return (
         <Stack.Navigator HomeScreen='HomeScreen' screenOptions={{ headerShown: false }}>
-            <Stack.Screen name='Stack2ex' component={Stack2ex} />
             <Stack.Screen name='HomeScreen' component={HomeScreen} />
-            <Stack.Screen name='SignInScreen' component={SignInScreen} />
 
         </Stack.Navigator>
     );

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1043114859377",
+    "project_id": "mivi-a0eb0",
+    "storage_bucket": "mivi-a0eb0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1043114859377:android:61c9c23304f3639de574d0",
+        "android_client_info": {
+          "package_name": "com.mivi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1043114859377-abk7bhhie0ep3v4nc60ndcj7cpe25e8f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGm_qs8Acic_Y2tImzXZiCUarplhcX-9s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1043114859377-abk7bhhie0ep3v4nc60ndcj7cpe25e8f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -14,29 +14,45 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import OnBoardScreen from './src/screens/OnBoardScreen';
 import HomeScreen from './src/screens/HomeScreen';
-import DetailsScreen from './src/screens/DetailsScreen'
 import OnBoardScreen2 from './src/screens/OnBoardScreen2'
 import LogeMavi from './src/screens/LogeMavi'
 import COLORS from './src/consts/colors';
 import StackEx from './src/consts/StackEx';
 import TabEx from './src/consts/TabEx'
-import { SignInScreen } from './src/screens/loging/SignInScreen';
-import { UserCreateScreen } from './src/screens/loging/UserCreateScreen';
-// const Stack = createNativeStackNavigator();
-
-
+import ForgotPasswordScreen from './src/screens/loging/ForgotPasswordScreen';
+import ResetPasswordScreen from './src/screens/loging/ResetPasswordScreen';
+import FillInfoScreen from './src/screens/loging/FillInfoScreen';
+import BookingScreen from './src/screens/booking/BookingScreen';
+import SignInScreen from './src/screens/loging/SignInScreen';
+import UserCreateScreen from './src/screens/loging/UserCreateScreen';
+import ProfileScreen from './src/screens/ProfileScreen';
+import NotificationScreen from './src/screens/NotificationScreen';
+import { SearchScreen } from './src/screens/SearchScreen';
+import ShalihScreen from './src/screens/ShalihScreen';
+import DetailsScreen from './src/screens/DetailsScreen';
+import ChaletPageScreen from './src/screens/ChaletPageScreen';
+import EditProfileScreen from './src/screens/EditProfileScreen'
 const App = () => {
   const Stack = createNativeStackNavigator();
-  const Tabss = createBottomTabNavigator();
 
   return (
     <NavigationContainer >
-      <Stack.Navigator initialRouteName='SignInScreen' screenOptions={{ headerShown: false }}>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name='LogeMavi' component={LogeMavi} />
         <Stack.Screen name='OnBoardScreen' component={OnBoardScreen} />
         <Stack.Screen name='OnBoardScreen2' component={OnBoardScreen2} />
         <Stack.Screen name='SignInScreen' component={SignInScreen} />
         <Stack.Screen name='UserCreateScreen' component={UserCreateScreen} />
+        <Stack.Screen name='ForgotPasswordScreen' component={ForgotPasswordScreen} />
+        <Stack.Screen name='ResetPasswordScreen' component={ResetPasswordScreen} />
+        <Stack.Screen name='FillInfoScreen' component={FillInfoScreen} />
+        <Stack.Screen name='BookingScreen' component={BookingScreen} />
+        <Stack.Screen name='ProfileScreen' component={ProfileScreen} />
+        <Stack.Screen name='NotificationScreen' component={NotificationScreen} />
+        <Stack.Screen name='SearchScreen' component={SearchScreen} />
+        <Stack.Screen name='DetailsScreen' component={DetailsScreen} />
+        <Stack.Screen name='ChaletPageScreen' component={ChaletPageScreen} />
+        <Stack.Screen name='EditProfileScreen' component={EditProfileScreen} />
         <Stack.Screen name='TabEx' component={TabEx} />
 
       </Stack.Navigator>

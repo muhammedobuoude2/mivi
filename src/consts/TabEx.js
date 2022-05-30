@@ -6,9 +6,9 @@ import DetailsScreen from '../screens/DetailsScreen';
 import HomeScreen from '../screens/HomeScreen';
 import StackEx from './StackEx';
 import Ionic from 'react-native-vector-icons/Ionicons';
-import SearchScreen from '../screens/SearchScreen';
+import { SearchScreen } from '../screens/SearchScreen';
+import FavoriteScreen from '../screens/FavoriteScreen'
 import Bagscreen from '../screens/Bagscreen';
-import FavoriteScreen from '../screens/FavoriteScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import { color } from 'react-native-reanimated';
 const Tab = createBottomTabNavigator();

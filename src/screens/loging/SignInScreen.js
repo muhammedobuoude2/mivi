@@ -1,43 +1,78 @@
-import React from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, Pressable } from 'react-native';
-import IconButton from 'react-native-vector-icons/dist/lib/icon-button';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Pressable, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import auth from '@react-native-firebase/auth'
+import { NavigationContainer } from '@react-navigation/native';
 
 
-export function SignInScreen(navigation) {
-    return (
-        <View style={styles.mainContainer}>
-            <View style={styles.container}>
-                <Text style={styles.textTitle}>تسجيل الدخول</Text>
+
+
+export class SignInScreen extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            email: '',
+            password: ''
+        }
+    }
+
+    changeEmail(value) {
+        this.setState({ email: value })
+    }
+    changePassword(value) {
+        this.setState({ password: value })
+    }
+    render() {
+        return (
+
+            <View style={styles.mainContainer}>
+                <View style={styles.container}>
+                    <Text style={styles.textTitle}>تسجيل الدخول</Text>
+                </View>
+
+                <View style={styles.FormView}>
+                    <Text style={styles.innerText}>اسم المستخدم</Text>
+                    <TextInput style={styles.TextInput} keyboardType='default' placeholder={'محمد'} placeholderTextColor={'#8D8D8D'} value={this.state.email} onChangeText={(value) => this.changeEmail(value)} />
+                    <Text style={styles.innerText1}>كلمة المرور</Text>
+                    <TextInput style={styles.TextInput} keyboardType='visible-password' placeholder={'كلمة المرور'} value={this.state.password} onChangeText={(value) => this.changePassword(value)} secureTextEntry={true} placeholderTextColor={'#8D8D8D'} />
+                    <View style={styles.underPass}>
+                        <Pressable onPress={() => navigation.navigate('ForgotPasswordScreen')}>
+                            <Text style={styles.textQuestion}>هل نسيت كلمة المرور ؟</Text>
+                        </Pressable>
+
+                    </View>
+                    <TouchableOpacity style={styles.Button} onPress={() => this.login()} >
+                        <Text style={styles.textButton}>تسجيل دخول</Text>
+                    </TouchableOpacity>
+
+                    <Text style={styles.comment}>أو سجل من خلال</Text>
+                    <View style={styles.links}>
+                        <Image source={require('./facebook.png')} style={{ backgroundColor: '#0000', width: 25, height: 25 }} />
+                        <Image source={require('./google.png')} style={{ backgroundColor: '#0000', marginLeft: 20, width: 25, height: 25 }} />
+                    </View>
+
+                    <Text style={styles.createAcount1}>أليس لديك حساب؟</Text>
+                    <Pressable onPress={() => this.props.navigation.navigate('UserCreateScreen')}>
+                        <Text style={styles.createAcount}>أنشئ حساب</Text>
+                    </Pressable>
+
+
+                </View>
             </View>
 
-            <View style={styles.FormView}>
-                <Text style={styles.innerText}>اسم المستخدم</Text>
-                <TextInput style={styles.TextInput} keyboardType='default' placeholder={'محمد'} placeholderTextColor={'#8D8D8D'} />
-                <Text style={styles.innerText1}>كلمة المرور</Text>
-                <TextInput style={styles.TextInput} keyboardType='visible-password' placeholder={'كلمة المرور'} secureTextEntry={true} placeholderTextColor={'#8D8D8D'} />
-                <View style={styles.underPass}>
+        );
 
-                    <Text style={styles.textQuestion}>هل نسيت كلمة المرور ؟</Text>
-                </View>
-                <Pressable onPress={() => this.props.navigation.navigate('TabEx')} style={styles.Button} >
-                    <Text style={styles.textButton}>تسجيل دخول</Text>
-                </Pressable>
-
-                <Text style={styles.comment}>أو سجل من خلال</Text>
-                <View style={styles.links}>
-                    <Image source={require('./facebook.png')} style={{ backgroundColor: '#0000', width: 25, height: 25 }} />
-                    <Image source={require('./google.png')} style={{ backgroundColor: '#0000', marginLeft: 20, width: 25, height: 25 }} />
-                </View>
-
-                <Text style={styles.createAcount1}>أليس لديك حساب؟</Text>
-                <Text style={styles.createAcount}>أنشئ حساب</Text>
-
-            </View>
-        </View>
-
-    );
+    }
+    login() {
+        console.log(this.state.email + ' ' + this.state.password)
+        auth().signInWithEmailAndPassword(this.state.email, this.state.password).then(response => {
+            this.props.navigation.navigate('TabEx')
+        }).catch(error => {
+            console.log('error', error)
+        })
+    }
 }
+
 const styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
@@ -181,3 +216,4 @@ const styles = StyleSheet.create({
     },
 
 });
+export default SignInScreen;

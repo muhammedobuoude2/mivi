@@ -20,7 +20,6 @@ const Stack2ex = () => {
     return (
         <Stack.Navigator HomeScreen='SignInScreen' screenOptions={{ headerShown: false }}>
 
-            <Stack.Screen name='SignInScreen' component={SignInScreen} />
             <Stack.Screen name='UserCreateScreen' component={UserCreateScreen} />
             
 

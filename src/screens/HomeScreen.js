@@ -27,8 +27,7 @@ export const SLIDER_WIDTH = Dimensions.get('window').width + 30;
 export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.8);
 import data from '../consts/slid';
 const Tab = createBottomTabNavigator();
-import DetailsScreen from './DetailsScreen';
-import DataShali from '../consts/DataSalih'
+import ShalihScreen from './ShalihScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { color } from 'react-native-reanimated';
 
@@ -42,13 +41,12 @@ const HomeScreen = ({ navigation }) => {
 
 
   return (
-
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
 
       <StatusBar translucent={false} backgroundColor={COLORS.white} barStyle='dark-content' />
       <View style={style.header}>
         <View>
-          <Pressable onPress={() => navigation.navigate('UserCreateScreen')}>
+          <Pressable onPress={() => navigation.navigate('NotificationScreen')}>
             <Image source={require('../assets/IconNaveg.png')} style={{ width: 20, height: 20, marginLeft: 320, marginVertical: 20 }} />
             <Image source={require('../assets/Iconpress.png')} style={{ width: 20, height: 20, marginLeft: 280, marginTop: -40 }} />
           </Pressable>
@@ -95,9 +93,12 @@ const HomeScreen = ({ navigation }) => {
             <View style={{
               backgroundColor: '#E5E5E5', borderRadius: 12, width: 120, height: 50
             }}>
+              
+              <Pressable onPress={() => navigation.navigate('ChaletPageScreen')}>
               <Image source={require('../assets/gaze.png')} style={{
                 borderRadius: 12, width: 135, height: 50, borderColor: '#E5E5E5', borderWidth: 0.5, marginRight: 22
               }} />
+              </Pressable>
             </View>
             <View style={{
               backgroundColor: '#E5E5E5', borderRadius: 12, width: 120, height: 50, marginLeft: 20
@@ -131,6 +132,7 @@ const HomeScreen = ({ navigation }) => {
             </Pressable>
 
           </ScrollView>
+
           <View>
             <Text style={style.textTi}> أعلى تقييماً</Text>
           </View>
@@ -142,9 +144,7 @@ const HomeScreen = ({ navigation }) => {
 
       </View>
 
-      <DetailsScreen />
-
-
+      <ShalihScreen />
 
     </SafeAreaView>
 

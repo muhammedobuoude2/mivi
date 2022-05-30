@@ -92,3 +92,6 @@ const style = StyleSheet.create({
   },
 });
 export default OnBoardScreen;
+
+<Text style={style.textStyle}>لدينا شاليهات في جميع مناطق قطاع غزة</Text>
+
